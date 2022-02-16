@@ -11,7 +11,7 @@ gcp_region="northamerica-northeast2"
 
 gcp_credentials="gcp_credentials.json"
 
-gcp_resource_prefix="xxx-satellite-google"
+gcp_resource_prefix="lcl-gcp"
 
 
 #IBM CLOUD
@@ -19,15 +19,15 @@ gcp_resource_prefix="xxx-satellite-google"
 
 ibmcloud_api_key="xxx"
 
-ibm_resource_group="Default"
+ibm_resource_group="lcl"
 
-location="xxx-satellite-gcp"
+location="lcl-gcp-satellite"
 
 is_location_exist=false
 
 managed_from="tor"
 
-location_zones=["canada-central-1", "canada-central-2", "canada-central-3"]
+location_zones=["northamerica-northeast2-a", "northamerica-northeast2-b", "northamerica-northeast2-c"]
 
 addl_host_count=3
 
