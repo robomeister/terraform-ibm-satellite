@@ -1,10 +1,10 @@
 
 variable "gcp_network_name" {
-  description = "GCP Project ID"
+  description = "GCP VPC Network Name"
   type        = string
 }
 variable "gcp_subnetwork" {
-  description = "GCP Project ID"
+  description = "GCP Subnet ID"
   type        = string
 }
 
@@ -20,7 +20,7 @@ variable "gcp_project" {
 variable "gcp_region" {
   description = "Google Region"
   type        = string
-  default     = "us-east1"
+  default     = "northamerica-northeast2"
 }
 variable "gcp_credentials" {
   description = "Either the path to or the contents of a service account key file in JSON format."
@@ -33,7 +33,7 @@ variable "ibmcloud_api_key" {
 variable "ibm_resource_group" {
   description = "Resource group name of the IBM Cloud account."
   type        = string
-  default     = "default"
+  default     = "lcl"
 }
 
 # # ##################################################
@@ -43,7 +43,7 @@ variable "ibm_resource_group" {
 variable "gcp_resource_prefix" {
   description = "Name to be used on all gcp resource as prefix"
   type        = string
-  default     = "satellite-google"
+  default     = "lcl-gcp"
 
   validation {
     condition     = var.gcp_resource_prefix != "" && length(var.gcp_resource_prefix) <= 25
@@ -62,12 +62,12 @@ variable "satellite_host_count" {
 variable "addl_host_count" {
   description = "The total number of additional gcp host"
   type        = number
-  default     = 0
+  default     = 3
 }
 variable "instance_type" {
   description = "The type of gcp instance to start."
   type        = string
-  default     = "n2-standard-4"
+  default     = "n2-standard-16"
 }
 variable "ssh_public_key" {
   description = "SSH Public Key. Get your ssh key by running `ssh-key-gen` command"
@@ -85,7 +85,7 @@ variable "gcp_ssh_user" {
 
 variable "location" {
   description = "Location Name"
-  default     = "satellite-gcp"
+  default     = "lcl-gcp-satellite"
 
   validation {
     condition     = var.location != "" && length(var.location) <= 32
@@ -101,13 +101,13 @@ variable "is_location_exist" {
 variable "managed_from" {
   description = "The IBM Cloud region to manage your Satellite location from. Choose a region close to your on-prem data center for better performance."
   type        = string
-  default     = "wdc"
+  default     = "tor"
 }
 
 variable "location_zones" {
   description = "Allocate your hosts across these three zones"
   type        = list(string)
-  default     = ["us-east1-b", "us-east1-c", "us-east1-d"]
+  default     = ["northamerica-northeast2-a","northamerica-northeast2-b","northamerica-northeast2-c"]
 }
 
 variable "location_bucket" {
